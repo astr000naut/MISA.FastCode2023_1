@@ -3,6 +3,7 @@
     --color-primary: #089740;
     --color-hover:#39AC66;
     --color-focus:#067933;
+
     --border-radius: 4px;
     /* --color-primary: rgb(1, 163, 138); */
     /* --color-secondary: rgb(103, 200, 185); */
@@ -18,4 +19,5 @@
     --height-tbrow: 48px;
     --width-sidebar: 200px;
     --color-pading: #EEEFF1;
+
 }

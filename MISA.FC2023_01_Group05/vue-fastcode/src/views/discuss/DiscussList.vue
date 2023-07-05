@@ -1,5 +1,6 @@
 <template>
     <div class="page">
+
         <div class="row align-center space-between">
             <h2>
                 Thảo Luận/Hỏi Đáp
@@ -96,6 +97,7 @@ export default {
     methods: {
         openCreateForm() {
             this.form.isShow = true;
+
         }
     },
 }
@@ -147,6 +149,8 @@ export default {
     font-size: 12px;
 }
 
+
+
 .m-textfield {
     margin: unset;
 }
@@ -155,4 +159,5 @@ export default {
     width: 36px;
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1090px -82px;
 }
+
 </style>

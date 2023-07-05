@@ -3,7 +3,9 @@
     <TheHeader></TheHeader>
     <TheSidebar></TheSidebar>
     <TheMain></TheMain>
-    <MISAToast v-if="1==0"></MISAToast>
+
+    <MISAToast v-if="1 == 0"></MISAToast>
+
   </div>
 </template>
 
@@ -15,7 +17,9 @@ import MISAToast from "@/components/base/toast/MISAToast.vue"
 export default {
   name: 'App',
   components: {
-    TheHeader,TheSidebar,TheMain,MISAToast
+
+    TheHeader, TheSidebar, TheMain, MISAToast
+
   }
 }
 </script>
