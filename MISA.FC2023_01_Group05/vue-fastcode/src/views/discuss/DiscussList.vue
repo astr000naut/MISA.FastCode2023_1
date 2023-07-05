@@ -7,15 +7,32 @@
             <m-button @click="openCreateForm" text="Thêm mới" type="primary-icon" className="btn-add"></m-button>
         </div>
         <div class="page__container">
+            <div class="row align-center space-between">
+                <!-- <div class="m-textfield">
+                    <div class="m-input-container">
+                        <input type="text" placeholder="">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div> -->
+                <m-textfield></m-textfield>
+                <m-button text="" type="secondary" className="reload"></m-button>
 
+            </div>
+            <m-discuss v-for="(thread, index) in threads" :key="index" :ThreadTitle="thread.ThreadTitle"
+                :ThreadType="thread.ThreadType" :UserName="thread.UserName" :AnswerNumber="thread.AnswerNumber"></m-discuss>
+            <!-- <m-discuss :ThreadType="'question'" :ThreadTitle="'AAAAA'"></m-discuss> -->
         </div>
     </div>
     <DisscusForm v-if="form.isShow"></DisscusForm>
 </template>
 <script>
 // import DiscussDetail from './DiscussDetail.vue';
+import MDiscuss from './MDiscuss.vue';
 export default {
     name: "DiscussList",
+    components: {
+        MDiscuss
+    },
     created() {
         fetch('data/threads.json')
             .then((response) => response.json())
@@ -23,7 +40,7 @@ export default {
     },
     data() {
         return {
-            data: [
+            threads: [
                 {
                     "ThreadId": 1,
                     "ThreadTitle": "Cần giúp đỡ về việc sử dụng thuộc tính flex?",
@@ -128,5 +145,14 @@ export default {
     column-gap: 16px;
     margin-top: 4px;
     font-size: 12px;
+}
+
+.m-textfield {
+    margin: unset;
+}
+
+.reload {
+    width: 36px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1090px -82px;
 }
 </style>
