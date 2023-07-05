@@ -1,14 +1,14 @@
 <template>
     <div class="page">
 
-        <div class="row align-center space-between">
+        <div class="m-row align-center space-between">
             <h2>
                 Thảo Luận/Hỏi Đáp
             </h2>
             <m-button @click="openCreateForm" text="Thêm mới" type="primary-icon" className="btn-add"></m-button>
         </div>
         <div class="page__container">
-            <div class="row align-center space-between">
+            <div class="m-row align-center space-between">
                 <!-- <div class="m-textfield">
                     <div class="m-input-container">
                         <input type="text" placeholder="">
@@ -24,15 +24,16 @@
             <!-- <m-discuss :ThreadType="'question'" :ThreadTitle="'AAAAA'"></m-discuss> -->
         </div>
     </div>
-    <DisscusForm v-if="form.isShow"></DisscusForm>
+    <m-form @close-form="onCloseForm" formTitle="Thông tin chủ đề " v-if="form.isShow"></m-form>
 </template>
 <script>
 // import DiscussDetail from './DiscussDetail.vue';
 import MDiscuss from './MDiscuss.vue';
+import MForm from '../../components/base/form/MForm';
 export default {
     name: "DiscussList",
     components: {
-        MDiscuss
+        MDiscuss, MForm
     },
     created() {
         fetch('data/threads.json')
@@ -95,9 +96,11 @@ export default {
         }
     },
     methods: {
+        onCloseForm() {
+            this.form.isShow = false;
+        },
         openCreateForm() {
             this.form.isShow = true;
-
         }
     },
 }
@@ -159,5 +162,4 @@ export default {
     width: 36px;
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1090px -82px;
 }
-
 </style>

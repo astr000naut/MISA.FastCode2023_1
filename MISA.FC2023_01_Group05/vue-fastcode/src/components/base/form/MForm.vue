@@ -1,40 +1,42 @@
 <template>
-    <form class="form-container m-30">
-        <div class="form-title d-flex justify-content-between">
-            <p>{{ formTitle }}</p>
-            <span class="close text-danger">&times;</span>
-        </div>
-
-        <div class="form-input d-flex flex-column">
-            <div class="field-text d-flex flex-column input-name ">
-                <m-input label="Họ và tên"></m-input>
+    <div class="m-mask">
+        <div class="form-container">
+            <div class="form-title flex space-between align-center">
+                <p>{{ formTitle }}</p>
+                <span class="close text-danger" @click="closeForm">&times;</span>
             </div>
 
-            <div class="field-text d-flex flex-column">
-                <m-input label="Email"></m-input>
-            </div>
-            <div class="field-text">
-                <label>Loại chủ đề<span class="icon-require">*</span></label>
-                <div class="radio-container d-flex">
-                    <m-radio label="Hỏi đáp" nameProps="them-type"
-                        :valueProps="this.$_MISAEnum.RADIO_VALUE.QANDA"></m-radio>
-                    <m-radio label="Thảo luận" nameProps="them-type"
-                        :valueProps="this.$_MISAEnum.RADIO_VALUE.DISCUSS"></m-radio>
-                    <m-radio label="Chia sẻ" nameProps="them-type"
-                        :valueProps="this.$_MISAEnum.RADIO_VALUE.SHARE"></m-radio>
-
-
-
+            <div class="form-input flex-y">
+                <div class="field-text flex-y input-name ">
+                    <m-input label="Họ và tên"></m-input>
                 </div>
-            </div>
 
-            <textarea placeholder="Nhập nội dung" name="" id=""></textarea>
+                <div class="field-text flex-y">
+                    <m-input label="Email"></m-input>
+                </div>
+                <div class="field-text">
+                    <label>Loại chủ đề<span class="icon-require">*</span></label>
+                    <div class="radio-container flex">
+                        <m-radio label="Hỏi đáp" nameProps="them-type"
+                            :valueProps="this.$_MISAEnum.RADIO_VALUE.QANDA"></m-radio>
+                        <m-radio label="Thảo luận" nameProps="them-type"
+                            :valueProps="this.$_MISAEnum.RADIO_VALUE.DISCUSS"></m-radio>
+                        <m-radio label="Chia sẻ" nameProps="them-type"
+                            :valueProps="this.$_MISAEnum.RADIO_VALUE.SHARE"></m-radio>
+
+
+
+                    </div>
+                </div>
+
+                <textarea rows="5" placeholder="Nhập nội dung" name="" id=""></textarea>
+            </div>
+            <div class="form-btn-group flex">
+                <button class="btn form-btn-2" @click="closeForm">Huỷ</button>
+                <button type="" class="btn form-btn-1">Đăng ký</button>
+            </div>
         </div>
-        <div class="form-btn-group d-flex">
-            <button class="btn form-btn-2">Huỷ</button>
-            <button type="submit" class="btn form-btn-1">Đăng ký</button>
-        </div>
-    </form>
+    </div>
 </template>
 
 <script>
@@ -51,11 +53,16 @@ export default {
         customPlaceholder: {
             type: String,
         },
-        data() {
-            return {
-                inValidErrors: [],
+    },
+    data() {
+        return {
+            inValidErrors: [],
 
-            }
+        }
+    },
+    methods: {
+        closeForm() {
+            this.$emit('closeForm')
         }
     },
 
@@ -64,11 +71,26 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--border-radius);
     width: 400px;
     border: 1px solid #c4c3c3;
     background-color: #fff;
+}
+
+p {
+    margin: unset;
+}
+
+textarea {
+    outline: unset;
+    border: 1px solid #bbb;
+    border-radius: var(--border-radius);
 }
 
 .form-title {
@@ -159,4 +181,6 @@ export default {
     text-align: center;
     min-width: 80px;
 }
+
+/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
 </style>

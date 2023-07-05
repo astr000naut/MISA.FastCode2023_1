@@ -16,7 +16,7 @@ export default {
             type: String
         },
         valueProps: {
-            type: String,
+            type: Number,
         },
         nameProps: {
             type: String,
