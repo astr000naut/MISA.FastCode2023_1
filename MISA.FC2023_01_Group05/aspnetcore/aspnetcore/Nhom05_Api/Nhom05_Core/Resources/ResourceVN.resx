@@ -126,6 +126,9 @@
   <data name="Exception_Validate_Default" xml:space="preserve">
     <value>Dữ liệu không hợp lệ, vui lòng kiểm tra lại</value>
   </data>
+  <data name="Validate_ThreadName_NotNull" xml:space="preserve">
+    <value>Họ tên không được phép để trống</value>
+  </data>
   <data name="Validate_User_Input_Error" xml:space="preserve">
     <value>Lỗi nhập liệu từ người dùng</value>
   </data>
