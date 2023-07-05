@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nhom05_Core.Exceptions;
+using Nhom05_Core.Interfaces.Infrastructures;
+using Nhom05_Core.Interfaces.Services;
 using Nhom05_Core.Middlewares;
 using Nhom05_Core.Resources;
+using Nhom05_Core.Services;
+using Nhom05_Infrastructure.Repository;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -53,6 +57,10 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddCors();
 
 // Tiêm DI
+builder.Services.AddScoped<IThreadRepository, ThreadRepository>();
+builder.Services.AddScoped<IThreadService, ThreadService>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ICommentService, CommentService>();
 
 var app = builder.Build();
 

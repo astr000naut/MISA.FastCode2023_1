@@ -88,6 +88,15 @@ namespace Nhom05_Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Họ tên không được phép để trống.
+        /// </summary>
+        public static string Validate_ThreadName_NotNull {
+            get {
+                return ResourceManager.GetString("Validate_ThreadName_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lỗi nhập liệu từ người dùng.
         /// </summary>
         public static string Validate_User_Input_Error {

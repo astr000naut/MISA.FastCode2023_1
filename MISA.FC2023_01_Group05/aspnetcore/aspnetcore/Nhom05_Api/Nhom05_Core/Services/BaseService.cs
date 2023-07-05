@@ -23,6 +23,7 @@ namespace Nhom05_Core.Services
         protected readonly IBaseRepository<TEntity> _baseRepository;
 
         protected readonly IMapper _mapper;
+        private IThreadRepository threadRepository;
 
         public BaseService(IBaseRepository<TEntity> baseRepository, IMapper mapper)
         {
