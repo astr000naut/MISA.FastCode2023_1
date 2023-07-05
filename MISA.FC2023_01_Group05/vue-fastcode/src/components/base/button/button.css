@@ -1,0 +1,95 @@
+button[disabled]{
+    cursor: not-allowed;
+    opacity: 0.67;
+}
+.m-btn {
+    border: unset;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    height: var(--button-height);
+
+}
+
+.m-btn:hover {
+    opacity: var(--opacity-hover);
+}
+
+.m-btn.disable {
+    opacity: var(--opacity-disabled);
+}
+
+.m-btn i {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.m-btn-primary {
+    background-color: var(--color-success);
+    padding: 0 16px;
+    min-width: 80px;
+    color: #fff;
+}
+
+.m-btn-secondary {
+    background-color: #fff;
+    padding: 0 16px;
+    border: 1px solid var(--color-border-default);
+    color: #000;
+}
+
+.m-btn-icon {
+    background-color: rgba(80, 184, 60, 0.1);
+    padding: 0 8px;
+    font-size: 20px;
+    color: var(--color-success);
+}
+
+.m-btn-primary-icon {
+    background-color: var(--color-success);
+    color: #fff;
+    padding: 0 16px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.m-btn-nav{
+    
+}
+
+/* combo button */
+.m-combo-btn {
+    background-color: var(--color-success);
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.m-combo-btn .m-combo-btn-body {
+    padding: 0 16px 0 12px;
+    display: flex;
+    align-items: center;
+
+}
+
+.m-combo-btn .m-combo-btn-body i {
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.m-combo-btn .m-combo-btn-tail {
+    width: 40px;
+    height: 36px;
+    border-left: 1px solid white;
+    line-height: 36px;
+}
+
+.m-combo-btn .m-combo-btn-tail i {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}

@@ -6,7 +6,12 @@
 @import url(./base/checkbox.css);
 @import url(./base/paging.css);
 @import url(./base/form.css);
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+@import url(./common.css);
+@import url(./grid.css);
+
 body{
     margin: 0;
     font-size: 13px;

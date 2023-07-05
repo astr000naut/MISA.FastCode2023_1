@@ -1,63 +1,103 @@
 <template>
     <div class="page">
-        Thảo luận/ hỏi đáp
-        <m-form formTitle="Thông tin chủ đề"></m-form>
+
+        <div class="row align-center space-between">
+            <h2>
+                Thảo Luận/Hỏi Đáp
+            </h2>
+            <m-button @click="openCreateForm" text="Thêm mới" type="primary-icon" className="btn-add"></m-button>
+        </div>
+        <div class="page__container">
+            <div class="row align-center space-between">
+                <!-- <div class="m-textfield">
+                    <div class="m-input-container">
+                        <input type="text" placeholder="">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div> -->
+                <m-textfield></m-textfield>
+                <m-button text="" type="secondary" className="reload"></m-button>
+
+            </div>
+            <m-discuss v-for="(thread, index) in threads" :key="index" :ThreadTitle="thread.ThreadTitle"
+                :ThreadType="thread.ThreadType" :UserName="thread.UserName" :AnswerNumber="thread.AnswerNumber"></m-discuss>
+            <!-- <m-discuss :ThreadType="'question'" :ThreadTitle="'AAAAA'"></m-discuss> -->
+        </div>
     </div>
-    <DisscusForm></DisscusForm>
+    <DisscusForm v-if="form.isShow"></DisscusForm>
 </template>
 <script>
 // import DiscussDetail from './DiscussDetail.vue';
+import MDiscuss from './MDiscuss.vue';
 export default {
     name: "DiscussList",
+    components: {
+        MDiscuss
+    },
     created() {
-        // fetch('data/threads.json')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
+        fetch('data/threads.json')
+            .then((response) => response.json())
+            .then((json) => console.log(json));
     },
     data() {
         return {
-            data: [
+            threads: [
                 {
                     "ThreadId": 1,
-                    "ThreadName": "Cần giúp đỡ về việc sử dụng thuộc tính flex?",
+                    "ThreadTitle": "Cần giúp đỡ về việc sử dụng thuộc tính flex?",
                     "ThreadType": 1,
-                    "ThreadUser": "Nguyễn Văn Mạnh",
+                    "UserName": "Nguyễn Văn Mạnh",
                     "AnswerNumber": 100,
-                    "CreatedDate": ""
+                    "CreatedDate": "",
+                    "ThreadContent": "",
                 },
                 {
                     "ThreadId": 2,
-                    "ThreadName": "Có bao nhiêu cách để thực hiện layout website?",
+                    "ThreadTitle": "Có bao nhiêu cách để thực hiện layout website?",
                     "ThreadType": 1,
-                    "ThreadUser": "Đỗ Văn Cường",
+                    "UserName": "Đỗ Văn Cường",
                     "AnswerNumber": 8,
-                    "CreatedDate": ""
+                    "CreatedDate": "",
+                    "ThreadContent": "",
                 },
                 {
                     "ThreadId": 3,
-                    "ThreadName": "Thảo luận về hiệu năng sử dụng các component có binding 2 chiều với nhiều thông tin.",
+                    "ThreadTitle": "Thảo luận về hiệu năng sử dụng các component có binding 2 chiều với nhiều thông tin.",
                     "ThreadType": 2,
-                    "ThreadUser": "Nguyễn Thị Nga",
+                    "UserName": "Nguyễn Thị Nga",
                     "AnswerNumber": 12,
-                    "CreatedDate": ""
+                    "CreatedDate": "",
+                    "ThreadContent": "",
                 },
                 {
                     "ThreadId": 4,
-                    "ThreadName": "Chia sẻ việc lập trình đồng bộ trong Javascript, những điều cần lưu ý.",
+                    "ThreadTitle": "Chia sẻ việc lập trình đồng bộ trong Javascript, những điều cần lưu ý.",
                     "ThreadType": 3,
-                    "ThreadUser": "Hoàng Ngọc Hân",
+                    "UserName": "Hoàng Ngọc Hân",
                     "AnswerNumber": 54,
-                    "CreatedDate": ""
+                    "CreatedDate": "",
+                    "ThreadContent": "",
                 },
                 {
                     "ThreadId": 5,
-                    "ThreadName": "Cho em hỏi về đồ án tốt nghiệp tại trường ĐH Bách Khoa.",
+                    "ThreadTitle": "Cho em hỏi về đồ án tốt nghiệp tại trường ĐH Bách Khoa.",
                     "ThreadType": 1,
-                    "ThreadUser": "Trần Diễm Giang",
+                    "UserName": "Trần Diễm Giang",
                     "AnswerNumber": 20,
-                    "CreatedDate": ""
+                    "CreatedDate": "",
+                    "ThreadContent": "",
                 }
-            ]
+            ],
+            form: {
+                isShow: false,
+
+            }
+        }
+    },
+    methods: {
+        openCreateForm() {
+            this.form.isShow = true;
+
         }
     },
 }
@@ -108,4 +148,16 @@ export default {
     margin-top: 4px;
     font-size: 12px;
 }
+
+
+
+.m-textfield {
+    margin: unset;
+}
+
+.reload {
+    width: 36px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1090px -82px;
+}
+
 </style>

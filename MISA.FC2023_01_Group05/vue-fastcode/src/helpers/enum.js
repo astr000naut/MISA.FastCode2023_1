@@ -1,4 +1,5 @@
 const MISAEnum = {
+
   FORM_MODE: {
     ADD: 1,
     UPDATE: 2,
@@ -15,3 +16,4 @@ const MISAEnum = {
   },
 };
 export default MISAEnum;
+

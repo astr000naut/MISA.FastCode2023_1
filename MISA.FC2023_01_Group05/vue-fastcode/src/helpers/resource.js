@@ -1,4 +1,5 @@
 const MISAResource = {
+
   VN: {
     FullNameInvalidError: {
       Empty: "Họ và tên không được phép để trống.",
@@ -20,3 +21,4 @@ const MISAResource = {
 };
 
 export default MISAResource;
+
