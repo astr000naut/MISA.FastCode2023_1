@@ -8,20 +8,20 @@
 
             <div class="form-input flex-y">
                 <div class="field-text flex-y input-name ">
-                    <m-input label="Họ và tên"></m-input>
+                    <m-input v-model="thread.MUserName" label="Họ và tên"></m-input>
                 </div>
 
                 <div class="field-text flex-y">
-                    <m-input label="Email"></m-input>
+                    <m-input v-model="thread.MThreadTitle" label="Title"></m-input>
                 </div>
                 <div class="field-text">
                     <label>Loại chủ đề<span class="icon-require">*</span></label>
                     <div class="radio-container flex">
-                        <m-radio label="Hỏi đáp" nameProps="them-type"
+                        <m-radio v-model="thread.MThreadType" label="Hỏi đáp" nameProps="them-type"
                             :valueProps="this.$_MISAEnum.RADIO_VALUE.QANDA"></m-radio>
-                        <m-radio label="Thảo luận" nameProps="them-type"
+                        <m-radio v-model="thread.MThreadType" label="Thảo luận" nameProps="them-type"
                             :valueProps="this.$_MISAEnum.RADIO_VALUE.DISCUSS"></m-radio>
-                        <m-radio label="Chia sẻ" nameProps="them-type"
+                        <m-radio v-model="thread.MThreadType" label="Chia sẻ" nameProps="them-type"
                             :valueProps="this.$_MISAEnum.RADIO_VALUE.SHARE"></m-radio>
 
 
@@ -29,11 +29,11 @@
                     </div>
                 </div>
 
-                <textarea rows="5" placeholder="Nhập nội dung" name="" id=""></textarea>
+                <textarea v-model="thread.MThreadContent" rows="5" placeholder="Nhập nội dung" name="" id=""></textarea>
             </div>
             <div class="form-btn-group flex">
                 <button class="btn form-btn-2" @click="closeForm">Huỷ</button>
-                <button type="" class="btn form-btn-1">Đăng ký</button>
+                <button type="" class="btn form-btn-1" @click="createNewThread">Đăng ký</button>
             </div>
         </div>
     </div>
@@ -57,12 +57,22 @@ export default {
     data() {
         return {
             inValidErrors: [],
+            thread: {
+                MThreadType: undefined,
+                MThreadTitle: "",
+                MUserName: "",
+                MThreadContent: "",
 
+
+            }
         }
     },
     methods: {
         closeForm() {
             this.$emit('closeForm')
+        },
+        createNewThread() {
+
         }
     },
 

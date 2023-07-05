@@ -1,7 +1,8 @@
 <template>
     <div class="field-text flex-y ">
         <label for="name-input">{{ label }}<span class="icon-require">*</span></label>
-        <input type="text" id="name-input" class="field-input" name="name" />
+        <input type="text" @input="this.$emit('update:modelValue', $event.target.value)" id="name-input" class="field-input"
+            name="name" />
     </div>
 </template>
 
@@ -12,6 +13,9 @@ export default {
         label: {
             type: String,
         },
+        modelValue: {
+
+        }
 
     }
 }
