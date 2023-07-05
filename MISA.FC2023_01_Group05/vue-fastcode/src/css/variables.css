@@ -1,0 +1,21 @@
+:root{
+    --border-color-default:#e0e0e0;
+    --color-primary: #089740;
+    --color-hover:#39AC66;
+    --color-focus:#067933;
+    --border-radius: 4px;
+    /* --color-primary: rgb(1, 163, 138); */
+    /* --color-secondary: rgb(103, 200, 185); */
+    --color-success: #50B83C;
+    --color-warning: #F49342;
+    --color-error: #DE3618;
+    --color-info: rgb(32, 118, 245);
+    --button-height: 36px;
+    --opacity-disabled: 56%;
+    --opacity-hover: 0.67;
+    --color-border-default: #e0e0e0;
+    --height-header: 56px;
+    --height-tbrow: 48px;
+    --width-sidebar: 200px;
+    --color-pading: #EEEFF1;
+}
