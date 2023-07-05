@@ -1,6 +1,6 @@
 <template>
     <div class="discuss">
-        <div :class="['icon', ThreadType ? `icon-${ThreadType}` : '']"></div>
+        <div :class="['icon', ThreadType>=0 ? `icon-${ThreadType}` : '']"></div>
         <div class="discuss-body flex-y space-between gap-16">
             <label>{{ ThreadTitle }}</label>
             <div class="flex gap-32">
@@ -53,6 +53,11 @@ p {
 }
 
 .icon-3 {
+    background-image: url('../../assets/icon/discuss-32.png');
+    background-size: contain;
+}
+
+.icon-0 {
     background-image: url('../../assets/icon/discuss-32.png');
     background-size: contain;
 }

@@ -19,8 +19,8 @@
                 <m-button text="" type="secondary" className="reload"></m-button>
 
             </div>
-            <m-discuss v-for="(thread, index) in threads" :key="index" :ThreadTitle="thread.ThreadTitle"
-                :ThreadType="thread.ThreadType" :UserName="thread.UserName" :AnswerNumber="thread.AnswerNumber"></m-discuss>
+            <m-discuss v-for="(thread, index) in threads" :key="index" :ThreadTitle="thread.MThreadTitle"
+                :ThreadType="thread.MThreadType" :UserName="thread.MUserName" :AnswerNumber="thread.MAnswerNumber"></m-discuss>
             <!-- <m-discuss :ThreadType="'question'" :ThreadTitle="'AAAAA'"></m-discuss> -->
         </div>
     </div>
@@ -30,63 +30,67 @@
 // import DiscussDetail from './DiscussDetail.vue';
 import MDiscuss from './MDiscuss.vue';
 import MForm from '../../components/base/form/MForm';
+import axios from 'axios';
 export default {
     name: "DiscussList",
     components: {
         MDiscuss, MForm
     },
-    created() {
-        fetch('data/threads.json')
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+    async created() {
+        // fetch('data/threads.json')
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json));
+        const res = await axios.get('https://localhost:44367/api/v1/Threads');
+        console.log(res);
+        this.threads = res.data;
     },
     data() {
         return {
             threads: [
                 {
-                    "ThreadId": 1,
-                    "ThreadTitle": "Cần giúp đỡ về việc sử dụng thuộc tính flex?",
-                    "ThreadType": 1,
-                    "UserName": "Nguyễn Văn Mạnh",
-                    "AnswerNumber": 100,
-                    "CreatedDate": "",
-                    "ThreadContent": "",
+                    "MThreadId": 1,
+                    "MThreadTitle": "Cần giúp đỡ về việc sử dụng thuộc tính flex?",
+                    "MThreadType": 1,
+                    "MUserName": "Nguyễn Văn Mạnh",
+                    "MAnswerNumber": 100,
+                    "MCreatedDate": "",
+                    "MThreadContent": "",
                 },
                 {
-                    "ThreadId": 2,
-                    "ThreadTitle": "Có bao nhiêu cách để thực hiện layout website?",
-                    "ThreadType": 1,
-                    "UserName": "Đỗ Văn Cường",
-                    "AnswerNumber": 8,
-                    "CreatedDate": "",
-                    "ThreadContent": "",
+                    "MThreadId": 2,
+                    "MThreadTitle": "Có bao nhiêu cách để thực hiện layout website?",
+                    "MThreadType": 1,
+                    "MUserName": "Đỗ Văn Cường",
+                    "MAnswerNumber": 8,
+                    "MCreatedDate": "",
+                    "MThreadContent": "",
                 },
                 {
-                    "ThreadId": 3,
-                    "ThreadTitle": "Thảo luận về hiệu năng sử dụng các component có binding 2 chiều với nhiều thông tin.",
-                    "ThreadType": 2,
-                    "UserName": "Nguyễn Thị Nga",
-                    "AnswerNumber": 12,
-                    "CreatedDate": "",
-                    "ThreadContent": "",
+                    "MThreadId": 3,
+                    "MThreadTitle": "Thảo luận về hiệu năng sử dụng các component có binding 2 chiều với nhiều thông tin.",
+                    "MThreadType": 2,
+                    "MUserName": "Nguyễn Thị Nga",
+                    "MAnswerNumber": 12,
+                    "MCreatedDate": "",
+                    "MThreadContent": "",
                 },
                 {
-                    "ThreadId": 4,
-                    "ThreadTitle": "Chia sẻ việc lập trình đồng bộ trong Javascript, những điều cần lưu ý.",
-                    "ThreadType": 3,
-                    "UserName": "Hoàng Ngọc Hân",
-                    "AnswerNumber": 54,
-                    "CreatedDate": "",
-                    "ThreadContent": "",
+                    "MThreadId": 4,
+                    "MThreadTitle": "Chia sẻ việc lập trình đồng bộ trong Javascript, những điều cần lưu ý.",
+                    "MThreadType": 3,
+                    "MUserName": "Hoàng Ngọc Hân",
+                    "MAnswerNumber": 54,
+                    "MCreatedDate": "",
+                    "MThreadContent": "",
                 },
                 {
-                    "ThreadId": 5,
-                    "ThreadTitle": "Cho em hỏi về đồ án tốt nghiệp tại trường ĐH Bách Khoa.",
-                    "ThreadType": 1,
-                    "UserName": "Trần Diễm Giang",
-                    "AnswerNumber": 20,
-                    "CreatedDate": "",
-                    "ThreadContent": "",
+                    "MThreadId": 5,
+                    "MThreadTitle": "Cho em hỏi về đồ án tốt nghiệp tại trường ĐH Bách Khoa.",
+                    "MThreadType": 1,
+                    "MUserName": "Trần Diễm Giang",
+                    "MAnswerNumber": 20,
+                    "MCreatedDate": "",
+                    "MThreadContent": "",
                 }
             ],
             form: {
