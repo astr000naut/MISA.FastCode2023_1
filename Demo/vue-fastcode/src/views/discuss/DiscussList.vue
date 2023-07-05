@@ -6,12 +6,14 @@
 </template>
 <script>
 // import DiscussDetail from './DiscussDetail.vue';
+import axios from 'axios'
 export default {
     name: "DiscussList",
     created() {
         // fetch('data/threads.json')
         //     .then((response) => response.json())
         //     .then((json) => console.log(json));
+        let res = axios.get('https://localhost:44367/api/v1/Threads').data;
     },
     data() {
         return {
